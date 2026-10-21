@@ -212,3 +212,26 @@ plt.title("HR Employee Dataset - Correlation Heatmap")
 plt.tight_layout()
 plt.savefig("correlation_heatmap.png", dpi=300, bbox_inches="tight")
 plt.show()
+# Exact employee count and attrition rate by age group
+
+bins = [17, 25, 35, 45, 55, 65]
+labels = ["18-25", "26-35", "36-45", "46-55", "56-65"]
+
+df["AgeGroup"] = pd.cut(
+    df["Age"],
+    bins=bins,
+    labels=labels
+)
+
+age_summary = df.groupby("AgeGroup", observed=False).agg(
+    Total_Employees=("Attrition", "count"),
+    Employees_Left=("Attrition", lambda x: (x == "Yes").sum())
+)
+
+age_summary["Attrition_Rate"] = (
+    age_summary["Employees_Left"] /
+    age_summary["Total_Employees"] * 100
+).round(2)
+
+print("\n--- AGE GROUP-WISE EXACT EMPLOYEE COUNTS ---")
+print(age_summary)

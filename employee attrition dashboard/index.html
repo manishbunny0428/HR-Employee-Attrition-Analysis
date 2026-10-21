@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Attrition Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>HR<span>Analytics</span></h2>
+    <p class="menu-title">WORKSPACE</p>
+    <a class="active" href="#overview">▦ &nbsp; Overview</a>
+    <a href="#departments">▥ &nbsp; Departments</a>
+    <a href="#workforce">◷ &nbsp; Workforce</a>
+    <div class="side-footer">EMPLOYEE INSIGHTS<br>HR Analytics Project</div>
+  </aside>
+
+  <main class="main" id="overview">
+    <header class="header">
+      <div>
+        <p class="eyebrow">HUMAN RESOURCES / ANALYTICS</p>
+        <h1>Employee Attrition Dashboard</h1>
+        <p class="subtitle">Understand workforce trends and employee turnover.</p>
+      </div>
+      <span class="status">● Dataset Overview</span>
+    </header>
+
+    <section class="section-title">
+      <div>
+        <h2>Workforce Overview</h2>
+        <p>Key metrics from the IBM HR dataset</p>
+      </div>
+      <span class="pill">1,470 employee records</span>
+    </section>
+
+    <section class="kpi-grid">
+      <article class="kpi">
+        <p>Total Employees</p>
+        <h3>1,470</h3>
+        <span>Employees in dataset</span>
+      </article>
+      <article class="kpi">
+        <p>Employees Left</p>
+        <h3 class="red">237</h3>
+        <span>Recorded attrition cases</span>
+      </article>
+      <article class="kpi">
+        <p>Attrition Rate</p>
+        <h3 class="purple">16.12%</h3>
+        <span>Overall turnover rate</span>
+      </article>
+      <article class="kpi">
+        <p>Average Age</p>
+        <h3>36.9 <small>years</small></h3>
+        <span>Across all employees</span>
+      </article>
+    </section>
+
+    <section class="charts-grid" id="departments">
+      <article class="panel">
+        <div class="panel-head">
+          <div><h2>Attrition by Department</h2><p>Employees who left</p></div>
+          <span class="tag">COUNT</span>
+        </div>
+        <div class="chart-box"><canvas id="departmentChart"></canvas></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <div><h2>Employee Status</h2><p>Left vs retained</p></div>
+          <span class="tag">SHARE</span>
+        </div>
+        <div class="chart-box"><canvas id="statusChart"></canvas></div>
+      </article>
+
+      <article class="panel" id="workforce">
+        <div class="panel-head">
+          <div><h2>Overtime & Attrition</h2><p>Attrition rate by overtime status</p></div>
+          <span class="tag">RATE</span>
+        </div>
+        <div class="chart-box"><canvas id="overtimeChart"></canvas></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <div><h2>Attrition by Age Group</h2><p>Percentage of employees who left</p></div>
+          <span class="tag">RATE</span>
+        </div>
+        <div class="chart-box"><canvas id="ageChart"></canvas></div>
+      </article>
+    </section>
+
+    <section class="panel insights">
+      <h2>Business Insights</h2>
+      <p>01 — Overtime: employees working overtime show a higher attrition rate (30.53%) than those who do not (10.44%).</p>
+      <p>02 — Department: Sales has the highest department attrition rate at 20.63%.</p>
+      <p>03 — Age: employees aged 18–25 have the highest observed age-group attrition rate at 35.77%.</p>
+    </section>
+
+    <footer>
+      HR Analytics Dashboard · Built with HTML, CSS & JavaScript
+      <p>Dataset: IBM HR Analytics Employee Attrition & Performance. Associations do not prove causation.</p>
+    </footer>
+  </main>
+</body>
+</html>
